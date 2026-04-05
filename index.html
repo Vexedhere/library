@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mythical Collection | The Grand Library</title>
+    <title>Mythical Collection  | Official Library</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Quicksand:wght@300;500&display=swap');
@@ -57,9 +57,7 @@
             cursor: pointer;
         }
 
-        .nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
-
-        /* --- HERO LANDING --- */
+        /* --- HERO --- */
         #hero {
             height: 100vh;
             display: flex;
@@ -75,7 +73,6 @@
             font-size: clamp(2.5rem, 8vw, 5rem);
             color: #fff;
             margin: 0;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
 
         .btn-enter {
@@ -93,22 +90,10 @@
 
         .btn-enter:hover { background: var(--gold); color: #000; box-shadow: 0 0 30px var(--gold); }
 
-        /* --- ABOUT AUTHORS --- */
-        #about { padding: 100px 10%; background: #0a0a0c; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .author-card {
-            background: var(--card);
-            padding: 40px;
-            border-left: 3px solid var(--gold);
-            transition: 0.3s;
-        }
-        .author-card h2 { font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0; }
-        .author-card p { line-height: 1.8; color: #888; font-size: 0.95rem; }
-
-        /* --- BOOK COLLECTION --- */
+        /* --- COLLECTION --- */
         #collection { padding: 100px 10%; }
         .section-title { text-align: center; font-family: 'Cinzel Decorative', cursive; font-size: 2.5rem; margin-bottom: 60px; color: #fff; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
         
         .artifact {
             background: var(--card);
@@ -120,10 +105,10 @@
             text-align: center;
         }
 
-        .artifact:hover { border-color: var(--gold); transform: translateY(-10px); background: #141417; }
+        .artifact:hover { border-color: var(--gold); transform: translateY(-10px); }
         .art-tag { color: var(--accent); font-weight: bold; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; }
-        .art-title { font-family: 'Cinzel', serif; font-size: 1.4rem; color: #fff; margin-bottom: 10px; min-height: 2.8em; }
-        .art-author { font-size: 0.8rem; color: #555; margin-bottom: 30px; }
+        .art-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: #fff; margin-bottom: 5px; min-height: 2.6em; }
+        .art-price { color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-bottom: 20px; }
         
         .btn-buy {
             margin-top: auto;
@@ -137,17 +122,8 @@
         }
         .btn-buy:hover { background: var(--gold); color: #000; }
 
-        /* --- LEADERBOARD --- */
-        #leaderboard { padding: 100px 10%; background: #0a0a0c; }
-        .rank-row {
-            display: flex; align-items: center; background: var(--card); padding: 25px; margin-bottom: 15px; border: 1px solid #1c1c1e; text-decoration: none; transition: 0.3s;
-        }
-        .rank-row:hover { border-color: var(--gold); }
-        .rank-num { font-family: 'Cinzel Decorative', cursive; font-size: 2rem; color: var(--gold); width: 60px; }
-        .rank-details h3 { font-family: 'Cinzel', serif; margin: 0; color: #fff; }
-
         footer { text-align: center; padding: 60px; border-top: 1px solid #1c1c1e; }
-        .store-btn { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 10px 20px; font-family: 'Cinzel'; font-size: 0.8rem; }
+        .store-btn { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 10px 20px; font-family: 'Cinzel'; }
     </style>
 </head>
 <body>
@@ -155,29 +131,15 @@
     <nav>
         <a onclick="go('hero')" class="logo">MYTHICAL VAULT</a>
         <div class="nav-links">
-            <a onclick="go('about')">The Creators</a>
-            <a onclick="go('collection')">Archive</a>
-            <a onclick="go('leaderboard')">Leaderboard</a>
+            <a onclick="go('collection')">The Collection</a>
+            <a href="https://store.mythicalstudios.online">Server Store</a>
         </div>
     </nav>
 
     <section id="hero">
         <h1>THE GRAND ARCHIVE</h1>
         <p>Official Story Portal | Mythical Studios</p>
-        <a class="btn-enter" onclick="go('collection')">OPEN THE VAULT</a>
-    </section>
-
-    <section id="about">
-        <div class="about-grid">
-            <div class="author-card">
-                <h2>CHETHAN</h2>
-                <p>Founder and Architect of Mythical Studios. Chethan leads the development of the Mythical Network and oversees the curation of these digital chronicles.</p>
-            </div>
-            <div class="author-card">
-                <h2>THAMAN DEVAPURAM</h2>
-                <p>Master Scribe and author of the Spirit Hunter series. Thaman is the creative force behind the complex lore housed within this archive.</p>
-            </div>
-        </div>
+        <a class="btn-enter" onclick="go('collection')">VIEW CHRONICLES</a>
     </section>
 
     <section id="collection">
@@ -185,41 +147,37 @@
         <div class="grid" id="bookGrid"></div>
     </section>
 
-    <section id="leaderboard">
-        <h2 class="section-title">Hall of Fame</h2>
-        <div id="leaderGrid"></div>
-    </section>
-
     <footer>
         <div style="margin-bottom: 30px;">
             <a href="https://store.mythicalstudios.online" class="store-btn">BACK TO SERVER STORE</a>
         </div>
-        <p style="font-size: 0.7rem; color: #444; letter-spacing: 1px;">&copy; 2026 MYTHICAL STUDIOS | ALL TITLES HOSTED ON BRIBOOKS</p>
+        <p style="font-size: 0.7rem; color: #444;">&copy; 2026 MYTHICAL STUDIOS | POWERED BY BRIBOOKS</p>
     </footer>
 
     <script>
+        // Updated data with true titles, prices, and direct links
         const vault = [
             { 
+                displayTitle: "SECRETS OF THE GREEN WORLD", 
+                price: "₹349",
+                tag: "ORIGINAL / NATURE", 
+                link: "https://www.bribooks.com/bookstore/secrets-of-the-green-world/" 
+            },
+            { 
                 displayTitle: "BAHUBALI: KING OF TIMELINES", 
-                realTitle: "Bahubali: King of Timelines",
-                author: "Thaman Devapuram", 
-                rank: 1, 
+                price: "₹375",
                 tag: "EPIC / ADVENTURE", 
                 link: "https://www.bribooks.com/bookstore/bahubali-king-of-timelines-by-thaman-devapuram/" 
             },
             { 
                 displayTitle: "SPIRIT HUNTER II: DARK CIRCUS", 
-                realTitle: "The Path of a Father",
-                author: "Thaman Devapuram", 
-                rank: 2, 
+                price: "₹450",
                 tag: "THRILLER / SEQUEL", 
                 link: "https://www.bribooks.com/bookstore/the-path-of-a-father-by-thaman-devapuram" 
             },
             { 
                 displayTitle: "SPIRIT HUNTER I: HOLLOW KING", 
-                realTitle: "Unspoken Bond",
-                author: "Thaman Devapuram", 
-                rank: 3, 
+                price: "₹425",
                 tag: "MYSTERY / ORIGIN", 
                 link: "https://www.bribooks.com/bookstore/unspoken-bond-by-thaman-devapuram/" 
             }
@@ -231,25 +189,13 @@
         }
 
         function init() {
-            // Main Gallery
             document.getElementById('bookGrid').innerHTML = vault.map(b => `
                 <div class="artifact">
                     <div class="art-tag">${b.tag}</div>
                     <div class="art-title">${b.displayTitle}</div>
-                    <div class="art-author">Authored by ${b.author}</div>
-                    <a href="${b.link}" target="_blank" class="btn-buy">READ ON BRIBOOKS</a>
+                    <div class="art-price">${b.price}</div>
+                    <a href="${b.link}" target="_blank" class="btn-buy">BUY ON BRIBOOKS</a>
                 </div>
-            `).join('');
-
-            // Hall of Fame
-            document.getElementById('leaderGrid').innerHTML = vault.map(b => `
-                <a href="${b.link}" target="_blank" class="rank-row">
-                    <div class="rank-num">${b.rank}</div>
-                    <div class="rank-details">
-                        <h3>${b.displayTitle}</h3>
-                        <div style="font-size:0.7rem; color:var(--accent); margin-top:5px;">OFFICIAL CHRONICLE | BY ${b.author}</div>
-                    </div>
-                </a>
             `).join('');
         }
 
