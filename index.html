@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mythical Vault | Official Store</title>
+    <title>Mythical Vault | Glassy UI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Quicksand:wght@300;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Poppins:wght@200;400;600&display=swap');
 
         :root {
             --gold: #d4af37;
-            --gold-glow: rgba(212, 175, 55, 0.4);
-            --bg: #050506;
-            --card: #0f0f12;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg: #050508;
             --accent: #6c5ce7;
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--bg);
-            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050508 100%);
+            color: #fff;
             margin: 0;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
+        /* --- GLASSY NAV --- */
         nav {
-            background: rgba(5, 5, 6, 0.95);
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
@@ -33,66 +38,118 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid var(--gold-glow);
+            border-bottom: 1px solid var(--glass-border);
             box-sizing: border-box;
         }
 
         .logo { 
             font-family: 'Cinzel Decorative', cursive;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--gold);
             text-decoration: none;
-            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
-        /* --- SECTIONS --- */
-        section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
-
+        /* --- HERO --- */
         #hero {
-            background: radial-gradient(circle at center, #16161d 0%, #050506 100%);
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
-        #about { background: #0a0a0c; min-height: auto; padding: 120px 10%; }
-        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .author-card {
-            background: var(--card);
+        #hero h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin: 0;
+            background: linear-gradient(to bottom, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- GLASSY ABOUT --- */
+        #about { padding: 100px 10%; }
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
             padding: 40px;
-            border-left: 3px solid var(--gold);
-            transition: 0.3s;
+            border-radius: 20px;
+            transition: 0.4s ease;
         }
-        .author-card h2 { font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0; }
 
-        #collection { background: var(--bg); }
-        .section-title { text-align: center; font-family: 'Cinzel Decorative', cursive; font-size: 2.5rem; margin-bottom: 60px; color: #fff; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .artifact {
-            background: var(--card);
-            padding: 30px;
-            border: 1px solid #1c1c1e;
-            transition: 0.4s;
-            text-align: center;
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+            transform: translateY(-10px);
         }
-        .artifact:hover { border-color: var(--gold); transform: translateY(-5px); }
+
+        .glass-card h2 { font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0; }
+        .glass-card p { font-weight: 200; line-height: 1.7; color: #ccc; }
+
+        /* --- COLLECTION --- */
+        #collection { padding: 80px 10%; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .artifact {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .artifact:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .art-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #fff; margin: 15px 0; min-height: 2.4em; }
+        .price-tag { 
+            font-size: 1.4rem; 
+            color: var(--gold); 
+            font-weight: bold; 
+            margin-bottom: 25px;
+            display: block;
+        }
 
         .btn-cart {
-            margin-top: 20px;
-            text-decoration: none;
-            background: var(--gold);
-            color: #000;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            background: var(--gold);
+            color: #000;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            padding: 14px;
+            border-radius: 12px;
             transition: 0.3s;
         }
-        .btn-cart:hover { background: #fff; }
 
-        footer { text-align: center; padding: 60px; border-top: 1px solid #1c1c1e; }
+        .btn-cart:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        footer { text-align: center; padding: 80px 10%; color: #555; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -100,70 +157,52 @@
     <nav>
         <a href="#" class="logo">MYTHICAL VAULT</a>
         <div style="display:flex; gap:20px;">
-            <a onclick="window.scrollTo(0, document.getElementById('about').offsetTop - 80)" style="cursor:pointer; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Authors</a>
-            <a onclick="window.scrollTo(0, document.getElementById('collection').offsetTop - 80)" style="cursor:pointer; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Collection</a>
+            <a onclick="document.getElementById('about').scrollIntoView()" style="cursor:pointer;">Authors</a>
+            <a onclick="document.getElementById('collection').scrollIntoView()" style="cursor:pointer;">Archive</a>
         </div>
     </nav>
 
     <section id="hero">
-        <h1 style="font-family: 'Cinzel Decorative';">THE GRAND ARCHIVE</h1>
-        <p style="color: var(--gold); letter-spacing: 3px;">ALL CHRONICLES: ₹415</p>
-        <button onclick="document.getElementById('collection').scrollIntoView()" style="margin-top:30px; background:none; border:1px solid var(--gold); color:#fff; padding:10px 30px; font-family:'Cinzel'; cursor:pointer;">ENTER VAULT</button>
+        <h1>THE GRAND ARCHIVE</h1>
+        <p style="color: var(--gold); letter-spacing: 4px; font-weight: 200;">OFFICIAL BRIBOOKS PORTAL</p>
     </section>
 
     <section id="about">
-        <div class="section-title">THE CREATORS</div>
-        <div class="about-grid">
-            <div class="author-card">
+        <div class="about-container">
+            <div class="glass-card">
                 <h2>CHETHAN</h2>
-                <p>Founder of Mythical Studios and Architect of the Network. Chethan leads the digital vision, ensuring that the stories of the Vault are preserved for all players.</p>
+                <p>Founder & Architect. Chethan drives the digital evolution of the Mythical Network, ensuring every legend is etched into the vault forever.</p>
             </div>
-            <div class="author-card">
+            <div class="glass-card">
                 <h2>THAMAN DEVAPURAM</h2>
-                <p>Lead Author and Lore Master. With multiple sagas published on BriBooks, Thaman is the primary scribe behind the Spirit Hunter and Bahubali chronicles.</p>
+                <p>Master Scribe. Thaman is the prolific creator of the Spirit Hunter sagas, bringing complex mysteries to life through 13 published chronicles.</p>
             </div>
         </div>
     </section>
 
     <section id="collection">
-        <h2 class="section-title">THE CHRONICLES</h2>
+        <h2 style="text-align:center; font-family:'Cinzel Decorative'; font-size:2.5rem; margin-bottom:50px;">CHRONICLES</h2>
         <div class="grid" id="bookGrid"></div>
     </section>
 
     <footer>
-        <p style="font-size: 0.8rem; color: #444;">&copy; 2026 MYTHICAL STUDIOS | POWERED BY BRIBOOKS</p>
+        <p>&copy; 2026 MYTHICAL STUDIOS | ALL CHRONICLES ₹415</p>
     </footer>
 
     <script>
         const vault = [
-            { 
-                title: "SECRETS OF THE GREEN WORLD", 
-                tag: "NATURE / ORIGINAL", 
-                link: "https://www.bribooks.com/bookstore/secrets-of-the-green-world/" 
-            },
-            { 
-                title: "BAHUBALI: KING OF TIMELINES", 
-                tag: "EPIC / ADVENTURE", 
-                link: "https://www.bribooks.com/bookstore/bahubali-king-of-timelines-by-thaman-devapuram/" 
-            },
-            { 
-                title: "SPIRIT HUNTER II: DARK CIRCUS", 
-                tag: "THRILLER / SEQUEL", 
-                link: "https://www.bribooks.com/bookstore/the-path-of-a-father-by-thaman-devapuram" 
-            },
-            { 
-                title: "SPIRIT HUNTER I: HOLLOW KING", 
-                tag: "MYSTERY / ORIGIN", 
-                link: "https://www.bribooks.com/bookstore/unspoken-bond-by-thaman-devapuram/" 
-            }
+            { title: "SECRETS OF THE GREEN WORLD", link: "https://www.bribooks.com/bookstore/secrets-of-the-green-world/" },
+            { title: "BAHUBALI: KING OF TIMELINES", link: "https://www.bribooks.com/bookstore/bahubali-king-of-timelines-by-thaman-devapuram/" },
+            { title: "SPIRIT HUNTER II: DARK CIRCUS", link: "https://www.bribooks.com/bookstore/the-path-of-a-father-by-thaman-devapuram" },
+            { title: "SPIRIT HUNTER I: HOLLOW KING", link: "https://www.bribooks.com/bookstore/unspoken-bond-by-thaman-devapuram/" }
         ];
 
         function init() {
             document.getElementById('bookGrid').innerHTML = vault.map(b => `
                 <div class="artifact">
-                    <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; margin-bottom:10px;">${b.tag}</div>
-                    <div style="font-family:'Cinzel'; font-size:1.2rem; color:#fff; min-height:2.4em;">${b.title}</div>
-                    <div style="color:var(--gold); font-weight:bold; margin:15px 0;">₹415</div>
+                    <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; letter-spacing:2px;">OFFICIAL RELEASE</div>
+                    <div class="art-title">${b.title}</div>
+                    <span class="price-tag">₹415</span>
                     <a href="${b.link}" target="_blank" class="btn-cart">
                         <i class="fas fa-shopping-basket"></i> ADD TO CART
                     </a>
