@@ -3,190 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mythical Vault | Glassy UI</title>
+    <title>Mythical Collection | SaaS & Archive</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Poppins:wght@200;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel+Decorative:wght@700&display=swap');
 
         :root {
-            --gold: #d4af37;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --bg: #050508;
-            --accent: #6c5ce7;
+            --primary: #6366f1; /* Modern SaaS Indigo */
+            --gold: #b59410;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.8);
+            --text-dark: #1e293b;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg);
-            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050508 100%);
-            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
             margin: 0;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
-        /* --- GLASSY NAV --- */
+        /* --- BRIGHT MODERN NAV --- */
         nav {
-            background: rgba(10, 10, 15, 0.7);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             box-sizing: border-box;
         }
 
         .logo { 
             font-family: 'Cinzel Decorative', cursive;
-            font-size: 1.5rem;
-            color: var(--gold);
+            font-size: 1.4rem;
+            color: var(--primary);
             text-decoration: none;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            font-weight: bold;
         }
 
-        /* --- HERO --- */
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO: BRIGHT & CLEAN --- */
         #hero {
-            height: 70vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+            padding-top: 80px;
         }
 
         #hero h1 {
             font-family: 'Cinzel Decorative', cursive;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             margin: 0;
-            background: linear-gradient(to bottom, #fff, var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-dark);
         }
 
-        /* --- GLASSY ABOUT --- */
-        #about { padding: 100px 10%; }
-        .about-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .hero-badge {
+            background: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
 
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+        /* --- SaaS SERVICES SECTION --- */
+        #saas { padding: 80px 10%; background: white; }
+        .saas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .saas-card {
             padding: 40px;
-            border-radius: 20px;
-            transition: 0.4s ease;
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--gold);
-            transform: translateY(-10px);
-        }
-
-        .glass-card h2 { font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0; }
-        .glass-card p { font-weight: 200; line-height: 1.7; color: #ccc; }
-
-        /* --- COLLECTION --- */
-        #collection { padding: 80px 10%; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .artifact {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 30px;
             border-radius: 24px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
+            background: #f1f5f9;
+            border: 1px solid transparent;
             transition: 0.4s;
         }
+        .saas-card:hover { 
+            border-color: var(--primary); 
+            background: white; 
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+        }
+        .saas-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
-        .artifact:hover {
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        /* --- THE ARCHIVE (BOOKS) --- */
+        #archive { padding: 80px 10%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        
+        .book-card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .art-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #fff; margin: 15px 0; min-height: 2.4em; }
-        .price-tag { 
-            font-size: 1.4rem; 
-            color: var(--gold); 
-            font-weight: bold; 
-            margin-bottom: 25px;
-            display: block;
+        .book-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+        .junior-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
+
+        .book-title { font-weight: 800; font-size: 1.1rem; margin: 15px 0; color: var(--text-dark); min-height: 2.4em; }
+        .price { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 20px; display: block; }
 
         .btn-cart {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--gold);
-            color: #000;
+            background: var(--text-dark);
+            color: white;
             text-decoration: none;
-            font-family: 'Cinzel', serif;
             font-weight: 700;
             padding: 14px;
-            border-radius: 12px;
+            border-radius: 14px;
             transition: 0.3s;
         }
+        .btn-cart:hover { background: var(--primary); }
 
-        .btn-cart:hover {
-            background: #fff;
-            transform: scale(1.05);
-        }
-
-        footer { text-align: center; padding: 80px 10%; color: #555; font-size: 0.8rem; }
+        footer { text-align: center; padding: 60px; color: #94a3b8; font-weight: 600; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">MYTHICAL VAULT</a>
-        <div style="display:flex; gap:20px;">
-            <a onclick="document.getElementById('about').scrollIntoView()" style="cursor:pointer;">Authors</a>
-            <a onclick="document.getElementById('collection').scrollIntoView()" style="cursor:pointer;">Archive</a>
+        <a href="#" class="logo">MYTHICAL COLLECTION</a>
+        <div class="nav-links">
+            <a href="#saas">SaaS</a>
+            <a href="#archive">Archive</a>
         </div>
     </nav>
 
     <section id="hero">
+        <div class="hero-badge">MYTHICAL STUDIOS PRESENTS</div>
         <h1>THE GRAND ARCHIVE</h1>
-        <p style="color: var(--gold); letter-spacing: 4px; font-weight: 200;">OFFICIAL BRIBOOKS PORTAL</p>
+        <p style="color: #64748b; margin-top: 15px; font-weight: 500;">Premium Software & Literary Chronicles</p>
     </section>
 
-    <section id="about">
-        <div class="about-container">
-            <div class="glass-card">
-                <h2>CHETHAN</h2>
-                <p>Founder & Architect. Chethan drives the digital evolution of the Mythical Network, ensuring every legend is etched into the vault forever.</p>
+    <section id="saas">
+        <div class="section-header">
+            <h2 style="font-size: 2.5rem; font-weight: 800;">SaaS Solutions</h2>
+            <p style="color: #64748b;">Enterprise-grade tools for the Mythical Network</p>
+        </div>
+        <div class="saas-grid">
+            <div class="saas-card">
+                <i class="fas fa-server saas-icon"></i>
+                <h3 style="font-weight: 800;">Mythical Node</h3>
+                <p style="color: #64748b;">High-performance Minecraft server management and automation portal.</p>
             </div>
-            <div class="glass-card">
-                <h2>THAMAN DEVAPURAM</h2>
-                <p>Master Scribe. Thaman is the prolific creator of the Spirit Hunter sagas, bringing complex mysteries to life through 13 published chronicles.</p>
+            <div class="saas-card">
+                <i class="fas fa-brain saas-icon"></i>
+                <h3 style="font-weight: 800;">Mythical AI</h3>
+                <p style="color: #64748b;">Advanced neural integration for community moderation and interaction.</p>
             </div>
         </div>
     </section>
 
-    <section id="collection">
-        <h2 style="text-align:center; font-family:'Cinzel Decorative'; font-size:2.5rem; margin-bottom:50px;">CHRONICLES</h2>
+    <section id="archive">
+        <div class="section-header">
+            <h2 style="font-size: 2.5rem; font-weight: 800;">Literary Archive</h2>
+            <p style="color: #64748b;">Official BriBooks Collection | All items ₹415</p>
+        </div>
         <div class="grid" id="bookGrid"></div>
     </section>
 
     <footer>
-        <p>&copy; 2026 MYTHICAL STUDIOS | ALL CHRONICLES ₹415</p>
+        <p>&copy; 2026 MYTHICAL STUDIOS | DESIGNED BY CHETHAN</p>
     </footer>
 
     <script>
@@ -199,10 +213,11 @@
 
         function init() {
             document.getElementById('bookGrid').innerHTML = vault.map(b => `
-                <div class="artifact">
-                    <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; letter-spacing:2px;">OFFICIAL RELEASE</div>
-                    <div class="art-title">${b.title}</div>
-                    <span class="price-tag">₹415</span>
+                <div class="book-card">
+                    <div class="junior-badge">JUNIORS</div>
+                    <div style="color:var(--primary); font-weight:700; font-size:0.7rem; letter-spacing:1px;">CHRONICLE</div>
+                    <div class="book-title">${b.title}</div>
+                    <span class="price">₹415</span>
                     <a href="${b.link}" target="_blank" class="btn-cart">
                         <i class="fas fa-shopping-basket"></i> ADD TO CART
                     </a>
