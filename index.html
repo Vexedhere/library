@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mythical Collection  | Official Library</title>
+    <title>Mythical Vault | Official Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;700&family=Quicksand:wght@300;500&display=swap');
@@ -24,7 +24,6 @@
             scroll-behavior: smooth;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             background: rgba(5, 5, 6, 0.95);
             padding: 20px 5%;
@@ -46,155 +45,128 @@
             letter-spacing: 2px;
         }
 
-        .nav-links a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
+        /* --- SECTIONS --- */
+        section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
 
-        /* --- HERO --- */
         #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             background: radial-gradient(circle at center, #16161d 0%, #050506 100%);
+            text-align: center;
         }
 
-        #hero h1 {
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            color: #fff;
-            margin: 0;
-        }
-
-        .btn-enter {
-            margin-top: 50px;
-            padding: 15px 45px;
-            background: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
-            cursor: pointer;
-            transition: 0.5s;
-            text-decoration: none;
-        }
-
-        .btn-enter:hover { background: var(--gold); color: #000; box-shadow: 0 0 30px var(--gold); }
-
-        /* --- COLLECTION --- */
-        #collection { padding: 100px 10%; }
-        .section-title { text-align: center; font-family: 'Cinzel Decorative', cursive; font-size: 2.5rem; margin-bottom: 60px; color: #fff; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        
-        .artifact {
+        #about { background: #0a0a0c; min-height: auto; padding: 120px 10%; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .author-card {
             background: var(--card);
             padding: 40px;
+            border-left: 3px solid var(--gold);
+            transition: 0.3s;
+        }
+        .author-card h2 { font-family: 'Cinzel', serif; color: var(--gold); margin-top: 0; }
+
+        #collection { background: var(--bg); }
+        .section-title { text-align: center; font-family: 'Cinzel Decorative', cursive; font-size: 2.5rem; margin-bottom: 60px; color: #fff; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .artifact {
+            background: var(--card);
+            padding: 30px;
             border: 1px solid #1c1c1e;
             transition: 0.4s;
-            display: flex;
-            flex-direction: column;
             text-align: center;
         }
+        .artifact:hover { border-color: var(--gold); transform: translateY(-5px); }
 
-        .artifact:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .art-tag { color: var(--accent); font-weight: bold; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; }
-        .art-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: #fff; margin-bottom: 5px; min-height: 2.6em; }
-        .art-price { color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-bottom: 20px; }
-        
-        .btn-buy {
-            margin-top: auto;
+        .btn-cart {
+            margin-top: 20px;
             text-decoration: none;
-            color: var(--gold);
+            background: var(--gold);
+            color: #000;
             font-family: 'Cinzel', serif;
             font-weight: bold;
             padding: 12px;
-            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             transition: 0.3s;
         }
-        .btn-buy:hover { background: var(--gold); color: #000; }
+        .btn-cart:hover { background: #fff; }
 
         footer { text-align: center; padding: 60px; border-top: 1px solid #1c1c1e; }
-        .store-btn { color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 10px 20px; font-family: 'Cinzel'; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a onclick="go('hero')" class="logo">MYTHICAL VAULT</a>
-        <div class="nav-links">
-            <a onclick="go('collection')">The Collection</a>
-            <a href="https://store.mythicalstudios.online">Server Store</a>
+        <a href="#" class="logo">MYTHICAL VAULT</a>
+        <div style="display:flex; gap:20px;">
+            <a onclick="window.scrollTo(0, document.getElementById('about').offsetTop - 80)" style="cursor:pointer; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Authors</a>
+            <a onclick="window.scrollTo(0, document.getElementById('collection').offsetTop - 80)" style="cursor:pointer; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Collection</a>
         </div>
     </nav>
 
     <section id="hero">
-        <h1>THE GRAND ARCHIVE</h1>
-        <p>Official Story Portal | Mythical Studios</p>
-        <a class="btn-enter" onclick="go('collection')">VIEW CHRONICLES</a>
+        <h1 style="font-family: 'Cinzel Decorative';">THE GRAND ARCHIVE</h1>
+        <p style="color: var(--gold); letter-spacing: 3px;">ALL CHRONICLES: ₹415</p>
+        <button onclick="document.getElementById('collection').scrollIntoView()" style="margin-top:30px; background:none; border:1px solid var(--gold); color:#fff; padding:10px 30px; font-family:'Cinzel'; cursor:pointer;">ENTER VAULT</button>
+    </section>
+
+    <section id="about">
+        <div class="section-title">THE CREATORS</div>
+        <div class="about-grid">
+            <div class="author-card">
+                <h2>CHETHAN</h2>
+                <p>Founder of Mythical Studios and Architect of the Network. Chethan leads the digital vision, ensuring that the stories of the Vault are preserved for all players.</p>
+            </div>
+            <div class="author-card">
+                <h2>THAMAN DEVAPURAM</h2>
+                <p>Lead Author and Lore Master. With multiple sagas published on BriBooks, Thaman is the primary scribe behind the Spirit Hunter and Bahubali chronicles.</p>
+            </div>
+        </div>
     </section>
 
     <section id="collection">
-        <h2 class="section-title">The Vaulted Works</h2>
+        <h2 class="section-title">THE CHRONICLES</h2>
         <div class="grid" id="bookGrid"></div>
     </section>
 
     <footer>
-        <div style="margin-bottom: 30px;">
-            <a href="https://store.mythicalstudios.online" class="store-btn">BACK TO SERVER STORE</a>
-        </div>
-        <p style="font-size: 0.7rem; color: #444;">&copy; 2026 MYTHICAL STUDIOS | POWERED BY BRIBOOKS</p>
+        <p style="font-size: 0.8rem; color: #444;">&copy; 2026 MYTHICAL STUDIOS | POWERED BY BRIBOOKS</p>
     </footer>
 
     <script>
-        // Updated data with true titles, prices, and direct links
         const vault = [
             { 
-                displayTitle: "SECRETS OF THE GREEN WORLD", 
-                price: "₹349",
-                tag: "ORIGINAL / NATURE", 
+                title: "SECRETS OF THE GREEN WORLD", 
+                tag: "NATURE / ORIGINAL", 
                 link: "https://www.bribooks.com/bookstore/secrets-of-the-green-world/" 
             },
             { 
-                displayTitle: "BAHUBALI: KING OF TIMELINES", 
-                price: "₹375",
+                title: "BAHUBALI: KING OF TIMELINES", 
                 tag: "EPIC / ADVENTURE", 
                 link: "https://www.bribooks.com/bookstore/bahubali-king-of-timelines-by-thaman-devapuram/" 
             },
             { 
-                displayTitle: "SPIRIT HUNTER II: DARK CIRCUS", 
-                price: "₹450",
+                title: "SPIRIT HUNTER II: DARK CIRCUS", 
                 tag: "THRILLER / SEQUEL", 
                 link: "https://www.bribooks.com/bookstore/the-path-of-a-father-by-thaman-devapuram" 
             },
             { 
-                displayTitle: "SPIRIT HUNTER I: HOLLOW KING", 
-                price: "₹425",
+                title: "SPIRIT HUNTER I: HOLLOW KING", 
                 tag: "MYSTERY / ORIGIN", 
                 link: "https://www.bribooks.com/bookstore/unspoken-bond-by-thaman-devapuram/" 
             }
         ];
 
-        function go(id) {
-            const y = document.getElementById(id).getBoundingClientRect().top + window.pageYOffset - 80;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-
         function init() {
             document.getElementById('bookGrid').innerHTML = vault.map(b => `
                 <div class="artifact">
-                    <div class="art-tag">${b.tag}</div>
-                    <div class="art-title">${b.displayTitle}</div>
-                    <div class="art-price">${b.price}</div>
-                    <a href="${b.link}" target="_blank" class="btn-buy">BUY ON BRIBOOKS</a>
+                    <div style="color:var(--accent); font-weight:bold; font-size:0.7rem; margin-bottom:10px;">${b.tag}</div>
+                    <div style="font-family:'Cinzel'; font-size:1.2rem; color:#fff; min-height:2.4em;">${b.title}</div>
+                    <div style="color:var(--gold); font-weight:bold; margin:15px 0;">₹415</div>
+                    <a href="${b.link}" target="_blank" class="btn-cart">
+                        <i class="fas fa-shopping-basket"></i> ADD TO CART
+                    </a>
                 </div>
             `).join('');
         }
